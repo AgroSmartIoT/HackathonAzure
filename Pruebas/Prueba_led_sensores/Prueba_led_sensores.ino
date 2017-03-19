@@ -6,16 +6,13 @@ unsigned long startTime;
 int motorPin=5;
 
 void setup() {
-  /*MicroBomb*/
+
   pinMode(motorPin,OUTPUT);
-  
-  /*Temperature and Humidity Sensor*/
+ 
   Serial.begin(9600);
 
-  /*Soil Moisture YL-100 Sensor*/
   pinMode(3,INPUT);
-  
-  /*LED*/
+
   pinMode(6, OUTPUT);
   pinMode(7,OUTPUT);
   pinMode(8,OUTPUT);
@@ -30,12 +27,10 @@ void setup() {
 
 void loop() {
   
-  /*Begin*/
   digitalWrite (9, HIGH);
   delay(1000);
   digitalWrite(9,LOW);
   
-  /*Temperature and DHT11 Humidity Sensor */
   int chk = DHT.read11(DHT11_PIN);
   int ambient_temperature = DHT.temperature;
   int ambient_humidity = DHT.humidity;
@@ -44,41 +39,12 @@ void loop() {
   Serial.println(ambient_temperature);
   ambientTemperatureLevel(ambient_temperature);
   
-  /*numberOfProgram(2);
-  
-  Serial.print("Humidity = ");
-  Serial.println(ambient_humidity);
-  ambientHumidityLevel(ambient_humidity);
-  
-  delay(1000);
 
-  /*numberOfProgram(3);
-
-  /*Soil Moisture YL-100 Sensor*/
-  /*int soil_moisture = analogRead(A0);
-  Serial.println(soil_moisture);
-  soilMoistureLevel(soil_moisture);
-  if(digitalRead(3) == LOW){
-      Serial.print("Humedo ");
-    }
-  delay(1000);
-
-  numberOfProgram(4);
-  
-  /*Water Level Sensor*/
-  /*
-  int water_level = analogRead(A1);
-  Serial.println(water_level);
-  waterLevelInTheContainer(water_level);
-  delay(1000);
-
-  /*Fin*/
   digitalWrite (10, HIGH);
   delay(1000);
   digitalWrite(10,LOW);
   
 }
-/*Ambient Temperature & Ambient Humidity Functions*/
 
 void ambientTemperatureLevel(int ambient_temperature){
   int flashing_led = 0;
@@ -137,7 +103,6 @@ void ambientHumidityLevel(int ambient_humidity){
     };
   };
  }
-/*Soil Moisture Functions*/
 
 void soilMoistureLevel(int soil_moisture){
   int flashing_led = 0;
@@ -166,13 +131,12 @@ void soilMoistureLevel(int soil_moisture){
       delay(50);
       
     }
-    /*MicroBomb*/
     digitalWrite(motorPin,HIGH); //Turn on the MicroBomb
     delay(3000);
     digitalWrite(motorPin,LOW);
   };
   }
-/*Water Level Function*/
+
 void waterLevelInTheContainer(int water_level){
   int flashing_led = 0;
   if(water_level == 0 || water_level <= 15){ //Turn on the Red LED
@@ -201,7 +165,7 @@ void waterLevelInTheContainer(int water_level){
     };
   };
   }
-  /*Other Functions2*/
+
   void numberOfProgram(int counter){
     int i = 0;
     for(i = 0; i < counter; i++){
