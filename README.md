@@ -1,17 +1,11 @@
 
-#Resumen
+# Resumen
 
+El proyecto a groso modo es 
 
+# Contributors
 
-#Code Example
-
-
-#Installation
-
-#API Reference
-
-#Tests
-
-#Contributors
-
-#License
+1) Sebastián Álvares
+2) Rafael Bastos
+3) Joann Castellanos
+4) Nicolás Miranda
